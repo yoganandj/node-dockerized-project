@@ -24,13 +24,12 @@ pipeline{
         }
         stage("Docker Push"){
             steps{
-                withCredentials([usernamePassword(credentialsId: 'docker_cred', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]){
+                withCredentials([usernamePassword(credentialsId: 'docker_cred', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                     bat 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                     bat 'docker tag my-node-app:1.0 yogananddocker/my-node-app:1.0'
                     bat 'docker push yogananddocker/my-node-app:1.0'
                     bat 'docker logout'
                 }
-                
             }
         }
     }
