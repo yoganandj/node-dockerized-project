@@ -5,10 +5,10 @@ pipeline{
             steps{
                 script{
                     wrap([$class: 'BuildUser']) {
-                        bat 'echo "${BUILD_USER}"'
+                        bat 'echo "${BUILD_USER_ID}"'
                     env.VERSION="${env.TIMESTAMP}-${env.GIT_COMMIT.take(7)}"
-                    currentBuild.displayName= "${env.BUILD_DISPLAY_NAME} by ${BUILD_USER}"
-                    currentBuild.description= "Commit : ${env.GIT_COMMIT.take(7)}, Branch: ${env.GIT_BRANCH}, By: ${BUILD_USER}"
+                    currentBuild.displayName= "${env.BUILD_DISPLAY_NAME} by ${BUILD_USER_ID}"
+                    currentBuild.description= "Commit : ${env.GIT_COMMIT.take(7)}, Branch: ${env.GIT_BRANCH}, By: ${BUILD_USER_ID}"
                     }
                 }
             }
