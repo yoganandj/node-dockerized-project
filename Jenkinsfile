@@ -34,14 +34,14 @@ pipeline{
                 bat 'docker build -t my-node-app:1.0 .'
             }
         }
-        stage("Docker Push"){
-            steps{
-                bat 'docker login -u yogananddocker -p itsmedh@123'
-                bat 'docker tag my-node-app:1.0 yogananddocker/my-node-app:1.0'
-                bat 'docker push yogananddocker/my-node-app:1.0'
-                bat 'docker logout'
-            }
-        }
+        // stage("Docker Push"){
+        //     steps{
+        //         bat 'docker login -u yogananddocker -p itsmedh@123'
+        //         bat 'docker tag my-node-app:1.0 yogananddocker/my-node-app:1.0'
+        //         bat 'docker push yogananddocker/my-node-app:1.0'
+        //         bat 'docker logout'
+        //     }
+        // }
         
     }
 }
